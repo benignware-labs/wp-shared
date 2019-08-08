@@ -56,9 +56,10 @@
     "extends @wordpress/browserslist-config"
   ],
   "scripts": {
+    "clean": "rm -rf dist",
     "watch": "chokidar \"src/**/*.*\" -c \"npm run build\" --initial",
     "build:polyfill": "cpx './node_modules/mdn-polyfills/**/*.*' dist/polyfill",
-    "build:fontawesome": "cpx './node_modules/@fortawesome/fontawesome-free/**/*.*' dist/fontawesome",
+    "build:fontawesome": "cpx './node_modules/@fortawesome/fontawesome-free/{css,webfonts}/*.*' dist/fontawesome",
     "build:js": "npx babel src/js/shared.js --out-file dist/shared.js",
     "build:scss": "node-sass src/scss/shared.scss dist/shared.css --output-style expanded",
     "build": "run-p \"build:*\""
